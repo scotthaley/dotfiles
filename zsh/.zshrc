@@ -135,7 +135,7 @@ eval "$(pyenv init -)"
 
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)
 
 # bun completions
 [ -s "/Users/scotthaley/.bun/_bun" ] && source "/Users/scotthaley/.bun/_bun"
