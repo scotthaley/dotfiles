@@ -113,6 +113,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias vim="nvim"
 alias ls="eza --icons=always"
+alias lg="lazygit"
 
 eval "$(zoxide init zsh)"
 alias cd="z"
