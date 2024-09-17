@@ -129,9 +129,9 @@ export PATH="$PATH:$HOME/.rvm/bin:$HOME/go/bin:$HOME/bin:${KREW_ROOT:-$HOME/.kre
 export EDITOR="vim"
 export NOTES_DIRECTORY="$HOME/Dropbox (Dialexa)/Notes"
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 
 # Load Angular CLI autocompletion.
@@ -161,3 +161,12 @@ setopt hist_verify
 # completion using arrow keys (based on history)
 bindkey '^[[C' history-search-backward
 bindkey '^[[D' history-search-forward
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
