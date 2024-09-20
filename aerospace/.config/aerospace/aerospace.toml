@@ -116,7 +116,7 @@ alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-t = 'workspace T' # For terminal
-alt-b = 'workspace B' # For browser
+alt-s = 'workspace S' # For side monitor
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -129,7 +129,7 @@ alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-t = 'move-node-to-workspace T'
-alt-shift-b = 'move-node-to-workspace B'
+alt-shift-s = 'move-node-to-workspace S' # For side monitor
 alt-shift-n = 'move-workspace-to-display --wrap-around next'
 alt-shift-p = 'move-workspace-to-display --wrap-around prev'
 
