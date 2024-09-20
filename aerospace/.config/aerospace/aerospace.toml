@@ -89,11 +89,20 @@ alt-comma = 'layout accordion horizontal vertical'
 
 alt-shift-f = 'fullscreen'
 
+# For moonlander
+alt-shift-ctrl-cmd-f = 'fullscreen'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-shift-h = 'focus --boundaries all-monitors-outer-frame left'
 alt-shift-j = 'focus --boundaries all-monitors-outer-frame down'
 alt-shift-k = 'focus --boundaries all-monitors-outer-frame up'
 alt-shift-l = 'focus --boundaries all-monitors-outer-frame right'
+
+# For moonlander
+alt-shift-ctrl-cmd-h = 'focus --boundaries all-monitors-outer-frame left'
+alt-shift-ctrl-cmd-j = 'focus --boundaries all-monitors-outer-frame down'
+alt-shift-ctrl-cmd-k = 'focus --boundaries all-monitors-outer-frame up'
+alt-shift-ctrl-cmd-l = 'focus --boundaries all-monitors-outer-frame right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-ctrl-h = 'move left'
@@ -101,9 +110,19 @@ alt-ctrl-j = 'move down'
 alt-ctrl-k = 'move up'
 alt-ctrl-l = 'move right'
 
+# For moonlander
+alt-shift-ctrl-h = 'move left'
+alt-shift-ctrl-j = 'move down'
+alt-shift-ctrl-k = 'move up'
+alt-shift-ctrl-l = 'move right'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
+
+# For moonlander
+alt-shift-ctrl-cmd-leftSquareBracket = 'resize smart -50'
+alt-shift-ctrl-cmd-rightSquareBracket = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
@@ -111,10 +130,6 @@ alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
 alt-5 = 'workspace 5'
-alt-6 = 'workspace 6'
-alt-7 = 'workspace 7'
-alt-8 = 'workspace 8'
-alt-9 = 'workspace 9'
 alt-t = 'workspace T' # For terminal
 alt-s = 'workspace S' # For side monitor
 
@@ -124,22 +139,32 @@ alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
 alt-shift-4 = 'move-node-to-workspace 4'
 alt-shift-5 = 'move-node-to-workspace 5'
-alt-shift-6 = 'move-node-to-workspace 6'
-alt-shift-7 = 'move-node-to-workspace 7'
-alt-shift-8 = 'move-node-to-workspace 8'
-alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-t = 'move-node-to-workspace T'
 alt-shift-s = 'move-node-to-workspace S' # For side monitor
-alt-shift-n = 'move-workspace-to-display --wrap-around next'
-alt-shift-p = 'move-workspace-to-display --wrap-around prev'
+alt-space = 'workspace T' # "Terminal" button
+
+# For moonlander
+alt-shift-ctrl-1 = 'move-node-to-workspace 1'
+alt-shift-ctrl-2 = 'move-node-to-workspace 2'
+alt-shift-ctrl-3 = 'move-node-to-workspace 3'
+alt-shift-ctrl-4 = 'move-node-to-workspace 4'
+alt-shift-ctrl-5 = 'move-node-to-workspace 5'
+alt-shift-ctrl-t = 'move-node-to-workspace T'
+alt-shift-ctrl-s = 'move-node-to-workspace S' # For side monitor
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
+# For moonlander
+alt-shift-ctrl-cmd-tab = 'move-workspace-to-monitor --wrap-around next'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
+
+# For moonlander
+alt-shift-ctrl-cmd-semicolon = 'mode service'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -154,6 +179,12 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
+# For moonlander
+alt-shift-ctrl-cmd-h = ['join-with left', 'mode main']
+alt-shift-ctrl-cmd-j = ['join-with down', 'mode main']
+alt-shift-ctrl-cmd-k = ['join-with up', 'mode main']
+alt-shift-ctrl-cmd-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
