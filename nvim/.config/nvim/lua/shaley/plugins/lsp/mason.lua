@@ -15,6 +15,7 @@ return {
 
 		-- enable mason and configure icons
 		mason.setup({
+			PATH = "append",
 			ui = {
 				icons = {
 					package_installed = "✓",
@@ -35,6 +36,7 @@ return {
 				"graphql",
 				"emmet_ls",
 				"pyright",
+				"rust_analyzer",
 			},
 		})
 
