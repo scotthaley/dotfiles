@@ -8,7 +8,7 @@ return {
 	-- sqlite is only needed if you want to use frecency sorting
 	dependencies = { "kkharji/sqlite.lua" },
 	keys = {
-		{ "<leader><leader>", "<cmd>Legendary<CR>", desc = "Open legendary" },
+		{ "<leader>l", "<cmd>Legendary<CR>", desc = "Open legendary" },
 	},
 	config = function()
 		local legendary = require("legendary")

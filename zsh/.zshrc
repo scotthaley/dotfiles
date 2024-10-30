@@ -171,3 +171,5 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+source ~/secrets.sh
