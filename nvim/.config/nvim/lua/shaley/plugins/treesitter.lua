@@ -40,6 +40,7 @@ return {
 				"query",
 				"vimdoc",
 				"kdl",
+				"prisma",
 			},
 			incremental_selection = {
 				enable = true,
