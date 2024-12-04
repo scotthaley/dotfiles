@@ -19,6 +19,9 @@ return {
 			{ "<leader>t", group = "neotest" },
 			{ "<leader>w", group = "window" },
 			{ "<leader>x", group = "trouble" },
+			{ "<leader>bb", desc = "View Open Buffers" },
+			{ "<leader>bn", desc = "Next Buffer" },
+			{ "<leader>bp", desc = "Previous Buffer" },
 		},
 	},
 }
