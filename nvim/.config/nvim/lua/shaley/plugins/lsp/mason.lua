@@ -36,7 +36,6 @@ return {
 				"graphql",
 				"emmet_ls",
 				"pyright",
-				"rust_analyzer",
 			},
 		})
 
@@ -48,6 +47,7 @@ return {
 				"black", -- python formatter
 				"pylint",
 				"eslint_d",
+				"codelldb",
 			},
 		})
 	end,
