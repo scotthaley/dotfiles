@@ -14,6 +14,7 @@ return {
 			{ "<leader>f", group = "telescope" },
 			{ "<leader>g", group = "git" },
 			{ "<leader>j", group = "hop" },
+			{ "<leader>k", group = "dap" },
 			{ "<leader>m", group = "format" },
 			{ "<leader>s", group = "session" },
 			{ "<leader>t", group = "neotest" },

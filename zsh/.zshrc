@@ -114,6 +114,7 @@ source $ZSH/oh-my-zsh.sh
 alias vim="nvim"
 alias ls="eza --icons=always"
 alias lg="lazygit"
+alias tt="taskwarrior-tui"
 
 eval "$(zoxide init zsh)"
 alias cd="z"
