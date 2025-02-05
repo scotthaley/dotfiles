@@ -48,6 +48,7 @@ return {
 				"pylint",
 				"eslint_d",
 				"codelldb",
+				"black",
 			},
 		})
 	end,

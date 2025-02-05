@@ -1,5 +1,6 @@
 return {
 	"matbme/JABS.nvim",
+	enabled = false,
 	keys = {
 		{ "<leader>bb", "<cmd>JABSOpen<CR>", desc = "Open buffer switcher (JABS)" },
 	},
