@@ -202,5 +202,5 @@ if.app-id = 'com.apple.MobileSMS'
 run = "move-node-to-workspace A"
 
 [[on-window-detected]]
-if.window-title-regex-substring = "Meenos"
-run = ["layout floating", 'move-node-to-workspace S']
+if.window-title-regex-substring = "Bevy"
+run = ["layout floating"]

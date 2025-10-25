@@ -41,6 +41,7 @@ return {
 				"vimdoc",
 				"kdl",
 				"prisma",
+				"wgsl",
 			},
 			incremental_selection = {
 				enable = true,

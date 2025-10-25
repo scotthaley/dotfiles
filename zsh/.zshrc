@@ -178,3 +178,6 @@ export PATH="/Users/scotthaley/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 #
 source ~/secrets.sh
+
+
+alias claude="/Users/shaley/.claude/local/claude"
