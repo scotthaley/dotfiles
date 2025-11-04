@@ -13,6 +13,7 @@ return {
 			{ "<leader>e", group = "neotree" },
 			{ "<leader>f", group = "telescope" },
 			{ "<leader>g", group = "git" },
+			{ "<leader>G", group = "go" },
 			{ "<leader>j", group = "hop" },
 			{ "<leader>k", group = "dap" },
 			{ "<leader>m", group = "format" },

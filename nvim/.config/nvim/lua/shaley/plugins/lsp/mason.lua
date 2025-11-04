@@ -36,6 +36,7 @@ return {
 				"graphql",
 				"emmet_ls",
 				"pyright",
+				"gopls",
 			},
 		})
 
@@ -49,6 +50,9 @@ return {
 				"eslint_d",
 				"codelldb",
 				"black",
+				"goimports", -- go formatter
+				"gofumpt", -- go formatter (stricter than gofmt)
+				"golangci-lint", -- go linter
 			},
 		})
 	end,

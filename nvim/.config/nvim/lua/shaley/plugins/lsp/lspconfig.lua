@@ -5,6 +5,8 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
 	},
 	config = function()
 		-- import lspconfig plugin
@@ -151,6 +153,22 @@ return {
 							completion = {
 								callSnippet = "Replace",
 							},
+						},
+					},
+				})
+			end,
+			["gopls"] = function()
+				-- configure gopls server
+				lspconfig["gopls"].setup({
+					capabilities = capabilities,
+					settings = {
+						gopls = {
+							analyses = {
+								unusedparams = true,
+								shadow = true,
+							},
+							staticcheck = true,
+							gofumpt = true,
 						},
 					},
 				})
