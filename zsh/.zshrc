@@ -79,8 +79,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  appup
-  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -114,7 +112,6 @@ source $ZSH/oh-my-zsh.sh
 alias vim="nvim"
 alias ls="eza --icons=always"
 alias lg="lazygit"
-alias tt="taskwarrior-tui"
 
 eval "$(zoxide init zsh)"
 alias cd="z"
@@ -129,7 +126,6 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/go/bin:$HOME/bin:${KREW_ROOT:-$HOME/.krew}/bin"
 
 export EDITOR="vim"
-export NOTES_DIRECTORY="$HOME/Dropbox (Dialexa)/Notes"
 
 # export PYENV_ROOT="$HOME/.pyenv"
 # command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -148,8 +144,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # history setup
 HISTFILE=$HOME/.zhistory
@@ -177,4 +173,31 @@ function y() {
 export PATH="/Users/scotthaley/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 #
-source ~/secrets.sh
+export REQUESTS_CA_BUNDLE="/opt/homebrew/lib/python3.13/site-packages/certifi/cacert.pem"
+
+# pnpm
+export PNPM_HOME="/Users/scott.haley/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# for cursor-agent
+export PATH="$HOME/.local/bin:$PATH"
+
+# Enable Bedrock integration
+export CLAUDE_CODE_USE_BEDROCK=1
+
+# Optional: override the default models
+export ANTHROPIC_MODEL='us.anthropic.claude-sonnet-4-5-20250929-v1:0'
+export ANTHROPIC_SMALL_FAST_MODEL='us.anthropic.claude-3-5-haiku-20241022-v1:0'
+
+
+export AWS_REGION=us-east-1  # or your preferred region
+export AWS_PROFILE=btt-dev
+# Optional: Override the region for the small/fast model (Haiku)
+export ANTHROPIC_SMALL_FAST_MODEL_AWS_REGION=us-east-1
+
+# optional; only if SDK fails to load shared config
+export AWS_SDK_LOAD_CONFIG=1  
