@@ -180,4 +180,6 @@ export PATH="/Users/scotthaley/.rd/bin:$PATH"
 source ~/secrets.sh
 
 
-alias claude="/Users/shaley/.claude/local/claude"
+. "/Users/shaley/.deno/env"
+
+export PATH="$HOME/.local/bin:$PATH"
