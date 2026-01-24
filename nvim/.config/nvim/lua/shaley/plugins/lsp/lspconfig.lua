@@ -9,10 +9,10 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local keymap = vim.keymap
 
+		-- LSP keybindings on attach
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
@@ -59,80 +59,84 @@ return {
 			end,
 		})
 
-		local capabilities = cmp_nvim_lsp.default_capabilities()
-
+		-- Diagnostic signs
 		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
+		-- Global LSP config (applies to all servers)
+		local capabilities = cmp_nvim_lsp.default_capabilities()
+		vim.lsp.config("*", {
+			capabilities = capabilities,
+		})
+
 		-- Server-specific configurations
-		local server_configs = {
-			cssls = {
-				settings = {
-					css = { validate = true, lint = { unknownAtRules = "ignore" } },
-					scss = { validate = true, lint = { unknownAtRules = "ignore" } },
-					less = { validate = true, lint = { unknownAtRules = "ignore" } },
-				},
+		vim.lsp.config("cssls", {
+			settings = {
+				css = { validate = true, lint = { unknownAtRules = "ignore" } },
+				scss = { validate = true, lint = { unknownAtRules = "ignore" } },
+				less = { validate = true, lint = { unknownAtRules = "ignore" } },
 			},
-			svelte = {
-				on_attach = function(client, bufnr)
-					vim.api.nvim_create_autocmd("BufWritePost", {
-						pattern = { "*.js", "*.ts" },
-						callback = function(ctx)
-							client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-						end,
-					})
-				end,
-			},
-			graphql = {
-				filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-			},
-			emmet_ls = {
-				filetypes = {
-					"html",
-					"typescriptreact",
-					"javascriptreact",
-					"css",
-					"sass",
-					"scss",
-					"less",
-					"svelte",
-				},
-			},
-			lua_ls = {
-				settings = {
-					Lua = {
-						diagnostics = { globals = { "vim" } },
-						completion = { callSnippet = "Replace" },
-					},
-				},
-			},
-			gopls = {
-				settings = {
-					gopls = {
-						analyses = { unusedparams = true, shadow = true },
-						staticcheck = true,
-						gofumpt = true,
-					},
-				},
-			},
-		}
+		})
 
-		-- Servers to skip (handled by other plugins)
-		local skip_servers = { rust_analyzer = true }
+		vim.lsp.config("svelte", {
+			on_attach = function(client, bufnr)
+				vim.api.nvim_create_autocmd("BufWritePost", {
+					pattern = { "*.js", "*.ts" },
+					callback = function(ctx)
+						client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+					end,
+				})
+			end,
+		})
 
-		-- Get installed servers from mason-lspconfig
+		vim.lsp.config("graphql", {
+			filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+		})
+
+		vim.lsp.config("emmet_ls", {
+			filetypes = {
+				"html",
+				"typescriptreact",
+				"javascriptreact",
+				"css",
+				"sass",
+				"scss",
+				"less",
+				"svelte",
+			},
+		})
+
+		vim.lsp.config("lua_ls", {
+			settings = {
+				Lua = {
+					diagnostics = { globals = { "vim" } },
+					completion = { callSnippet = "Replace" },
+				},
+			},
+		})
+
+		vim.lsp.config("gopls", {
+			settings = {
+				gopls = {
+					analyses = { unusedparams = true, shadow = true },
+					staticcheck = true,
+					gofumpt = true,
+				},
+			},
+		})
+
+		-- Get installed servers from mason and enable them
 		local mason_lspconfig = require("mason-lspconfig")
 		local installed_servers = mason_lspconfig.get_installed_servers()
 
-		for _, server_name in ipairs(installed_servers) do
-			if not skip_servers[server_name] then
-				local config = server_configs[server_name] or {}
-				config.capabilities = capabilities
-				lspconfig[server_name].setup(config)
-			end
-		end
+		-- Filter out rust_analyzer (handled by rustaceanvim)
+		local servers_to_enable = vim.tbl_filter(function(server)
+			return server ~= "rust_analyzer"
+		end, installed_servers)
+
+		vim.lsp.enable(servers_to_enable)
 	end,
 }
