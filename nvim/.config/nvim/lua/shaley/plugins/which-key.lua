@@ -7,7 +7,7 @@ return {
 	end,
 	opts = {
 		spec = {
-			{ "<leader>a", group = "avante" },
+			{ "<leader>a", group = "claude" },
 			{ "<leader>b", group = "buffer" },
 			{ "<leader>c", group = "lsp" },
 			{ "<leader>e", group = "neotree" },

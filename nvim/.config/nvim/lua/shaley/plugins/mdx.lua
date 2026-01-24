@@ -1,5 +1,7 @@
 return {
 	"davidmh/mdx.nvim",
-	config = true,
+	config = function()
+		-- Plugin registers treesitter parsers, no setup needed
+	end,
 	dependencies = { "nvim-treesitter/nvim-treesitter" },
 }
