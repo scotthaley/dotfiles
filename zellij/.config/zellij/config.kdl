@@ -401,7 +401,7 @@ default_layout "welcome"
 //   - true (default)
 //   - false
 // 
-session_serialization false
+session_serialization true
  
 // Whether pane viewports are serialized along with the session, default is false
 // Options:
