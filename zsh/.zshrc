@@ -115,6 +115,7 @@ alias vim="nvim"
 alias ls="eza --icons=always"
 alias lg="lazygit"
 alias tt="taskwarrior-tui"
+alias tn="task-nerd"
 
 eval "$(zoxide init zsh)"
 alias cd="z"
